@@ -28,7 +28,7 @@ if(SMTG_ENABLE_VST3_HOSTING_EXAMPLES)
                 "${SDK_ROOT}/public.sdk/source/vst/hosting/module_mac.mm" PROPERTIES
                 COMPILE_FLAGS "-fobjc-arc"
             )
-           set(audiohost_PLATFORM_LIBS "-framework CoreFoundation")
+           set(audiohost_PLATFORM_LIBS "-framework CoreFoundation -framework Foundation")
             get_filename_component(InfoPlistFile "resource/Info.plist" ABSOLUTE)
             set(APP_PROPERTIES
                 MACOSX_BUNDLE TRUE
