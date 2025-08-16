@@ -88,8 +88,6 @@ add_library(sdk
 if(VST_SDK)
     target_sources(sdk
         PRIVATE
-            source/main/moduleinit.cpp
-            source/main/moduleinit.h
             source/vst/utility/alignedalloc.h
             source/vst/utility/audiobuffers.h
             source/vst/utility/dataexchange.cpp
@@ -130,6 +128,15 @@ if(VST_SDK)
             source/vst/vstrepresentation.h
     )
 endif(VST_SDK)
+
+# Include module initialization on all platforms for VST3 support
+if(VST_SDK)
+    target_sources(sdk
+        PRIVATE
+            source/main/moduleinit.cpp
+            source/main/moduleinit.h
+    )
+endif()
 
 target_compile_features(sdk
     PUBLIC
